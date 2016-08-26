@@ -24,6 +24,11 @@ angular
         url: '/albums',
         templateUrl: 'views/albums.html',
         controller: 'MainCtrl'
+      })
+      .state('bands', {
+        url: '/bands',
+        templateUrl: 'views/bands.html',
+        controller: 'MainCtrl'
       });
   }])
   .run(['$state', function($state) {

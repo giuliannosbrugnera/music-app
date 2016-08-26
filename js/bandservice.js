@@ -2,15 +2,15 @@
 
 /**
  * @ngdoc service
- * @name  musicApp.TrackService
+ * @name  musicApp.BandService
  * @description 
- * # TrackService
+ * # BandService
  *
  * Factory in the musicApp.
  */
 angular.module('musicApp')
-  .factory('TrackService', ['$resource', function($resource) {
-    return $resource('http://localhost:65338/api/tracks/:id', {id: '@id'}, {
+  .factory('BandService', ['$resource', function($resource) {
+    return $resource('http://localhost:65338/api/bands/:id', {id: '@id'}, {
       'get': {method: 'GET'},
       'save': {method: 'POST'},
       'query': {method: 'GET', isArray: true},

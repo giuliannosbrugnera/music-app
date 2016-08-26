@@ -1,0 +1,23 @@
+<!-- This template displays all the bands returned from the REST API. -->
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Genre</th>
+      <th>Country</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="band in bands">
+      <td ng-bind="band.Name"></td>
+      <td ng-bind="band.Genre"></td>
+      <td ng-bind="band.Country"></td>
+      <td>
+        <button class="btn btn-info" ng-click="setDataForBand(band.BandId)">
+          <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Info
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

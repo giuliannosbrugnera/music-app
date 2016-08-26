@@ -6,7 +6,7 @@
  * @description 
  * # AlbumService
  *
- * Factory in the myApp.
+ * Factory in the musicApp.
  */
 angular.module('musicApp')
   .factory('AlbumService', ['$resource', function($resource) {
