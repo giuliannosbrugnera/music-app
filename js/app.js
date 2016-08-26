@@ -1,0 +1,1 @@
+angular.module('musicApp', ['ui.router', 'ngResource', 'musicApp.controllers', 'musicApp.services']);
