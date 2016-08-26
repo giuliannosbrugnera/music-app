@@ -7,6 +7,7 @@
     <base href="/"/>
     <title>Music App</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/app.css"/>
   </head>
   <body>
     <nav class="navbar navbar-default" role="navigation">
@@ -22,15 +23,22 @@
       </div>
     </nav>
     <div class="container">
-      <div class="col-xs-8 col-xs-offset-2" ng-controller="Track as track">
+      <div class="col-xs-8 col-xs-offset-2">
         <!-- This is where our views will load -->
         <!-- The ui-view directive comes from UI Router module and acts as a container for our views. -->
-        <!-- <div ui-view></div> -->
-        <!-- <p ng-repeat="(key, value) in dataset"></p> -->
+        <div ui-view></div>
       </div>
     </div>
+    <footer class="footer">
+      <div class="container-footer">
+        <p class="text-muted">&copy; Giulianno Sbrugnera</p>
+      </div>
+    </footer>
     <script type="text/javascript" src="lib/angular.min.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/trackservice.js"></script>
     <script type="text/javascript" src="lib/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="lib/angular-resource.min.js"></script>
   </body>
 </html>

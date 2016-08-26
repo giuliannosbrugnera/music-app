@@ -1,10 +1,25 @@
-function Track($scope, $http) {
-  $http.get('http://localhost:65338/api/tracks').
-  then(function(response) {
-    $scope.data = response;
-    console.log(JSON.stringify(response));
-  });
-}
+'use strict';
 
-var musicApp = angular.module('musicApp', ['ui.router']);
-musicApp.controller('Track', ['$scope', '$http', Track]);
+/**
+ * @ngdoc overview
+ * @name  musicApp
+ * @description 
+ * # musicApp
+ *
+ * Main module for the application.
+ */
+angular
+  .module('musicApp', [
+    'ui.router',
+    'ngResource'
+  ])
+  .config(['$stateProvider', function($stateProvider) {
+    $stateProvider.state('tracks', {
+      url: '/tracks',
+      templateUrl: 'views/tracks.html',
+      controller: 'MainCtrl'
+    });
+  }])
+  .run(['$state', function($state) {
+    $state.go('tracks');
+  }]);
