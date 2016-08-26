@@ -29,6 +29,11 @@ angular
         url: '/bands',
         templateUrl: 'views/bands.html',
         controller: 'MainCtrl'
+      })
+      .state('labels', {
+        url: '/labels',
+        templateUrl: 'views/labels.html',
+        controller: 'MainCtrl'
       });
   }])
   .run(['$state', function($state) {
