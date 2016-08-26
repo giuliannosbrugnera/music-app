@@ -30,3 +30,7 @@ body {
 .container-footer .text-muted {
   margin: 20px 0;
 }
+
+th, td {
+  vertical-align: middle !important;
+}

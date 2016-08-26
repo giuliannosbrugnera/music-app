@@ -16,6 +16,11 @@ angular.module('musicApp')
     $scope.tracks.$promise.then(function(data) {
       console.log(JSON.stringify(data));
     });
-    // console.log($scope.tracks);
-    // console.log(JSON.stringify($scope.tracks));
+    
+    $scope.setDataForTrack = function(trackId) {
+      $scope.oneTrack = TrackService.get({id : trackId});
+      $scope.oneTrack.$promise.then(function(data) {
+        console.log(JSON.stringify(data));
+      });
+    }
   }]);
