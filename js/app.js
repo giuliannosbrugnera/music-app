@@ -14,11 +14,17 @@ angular
     'ngResource'
   ])
   .config(['$stateProvider', function($stateProvider) {
-    $stateProvider.state('tracks', {
-      url: '/tracks',
-      templateUrl: 'views/tracks.html',
-      controller: 'MainCtrl'
-    });
+    $stateProvider
+      .state('tracks', {
+        url: '/tracks',
+        templateUrl: 'views/tracks.html',
+        controller: 'MainCtrl'
+      })
+      .state('albums', {
+        url: '/albums',
+        templateUrl: 'views/albums.html',
+        controller: 'MainCtrl'
+      });
   }])
   .run(['$state', function($state) {
     $state.go('tracks');
