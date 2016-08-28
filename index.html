@@ -23,12 +23,12 @@
                     <span class="icon-bar"></span>
                 </button>
             </div>
-            <div class="collapse navbar-collapse">
+            <div class="collapse navbar-collapse" ng-controller="HeaderCtrl">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a ui-sref="tracks">Home</a></li>
-                    <li><a ui-sref="bands">Bands</a></li>
-                    <li><a ui-sref="albums">Albums</a></li>
-                    <li><a ui-sref="labels">Record Labels</a></li>
+                    <li ng-class="{ active: isActive('/tracks') }"><a ui-sref="tracks">Tracks</a></li>
+                    <li ng-class="{ active: isActive('/bands') }"><a ui-sref="bands">Bands</a></li>
+                    <li ng-class="{ active: isActive('/albums') }"><a ui-sref="albums">Albums</a></li>
+                    <li ng-class="{ active: isActive('/labels') }"><a ui-sref="labels">Record Labels</a></li>
                 </ul>
             </div>
         </div>
@@ -48,6 +48,7 @@
     <script type="text/javascript" src="lib/angular.min.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/headercontroller.js"></script>
     <script type="text/javascript" src="js/trackservice.js"></script>
     <script type="text/javascript" src="js/albumservice.js"></script>
     <script type="text/javascript" src="js/bandservice.js"></script>
