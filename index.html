@@ -1,41 +1,43 @@
 <!DOCTYPE html>
 <html ng-app="musicApp">
-  <head lang="en">
+
+<head lang="en">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <base href="/"/>
+    <base href="/" />
     <title>Music App</title>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="css/app.css"/>
-  </head>
-  <body>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/app.css" />
+</head>
+
+<body>
     <nav class="navbar navbar-default" role="navigation">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" ui-sref="tracks">Music App</a>
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" ui-sref="tracks">Music App</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a ui-sref="tracks">Home</a></li>
+                    <li><a ui-sref="bands">Bands</a></li>
+                    <li><a ui-sref="albums">Albums</a></li>
+                    <li><a ui-sref="labels">Record Labels</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a ui-sref="tracks">Home</a></li>
-            <li><a ui-sref="bands">Bands</a></li>
-            <li><a ui-sref="albums">Albums</a></li>
-            <li><a ui-sref="labels">Record Labels</a></li>
-          </ul>
-        </div>
-      </div>
     </nav>
     <div class="container">
-      <div class="col-xs-8 col-xs-offset-2">
-        <!-- This is where our views will load -->
-        <!-- The ui-view directive comes from UI Router module and acts as a container for our views. -->
-        <div ui-view></div>
-      </div>
+        <div class="col-xs-8 col-xs-offset-2">
+            <!-- This is where our views will load -->
+            <!-- The ui-view directive comes from UI Router module and acts as a container for our views. -->
+            <div ui-view></div>
+        </div>
     </div>
     <footer class="footer">
-      <div class="container-footer">
-        <p class="text-muted">&copy; Giulianno Sbrugnera</p>
-      </div>
+        <div class="container-footer">
+            <p class="text-muted">&copy; Giulianno Sbrugnera</p>
+        </div>
     </footer>
     <script type="text/javascript" src="lib/angular.min.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
@@ -46,5 +48,6 @@
     <script type="text/javascript" src="js/labelservice.js"></script>
     <script type="text/javascript" src="lib/angular-ui-router.min.js"></script>
     <script type="text/javascript" src="lib/angular-resource.min.js"></script>
-  </body>
+</body>
+
 </html>

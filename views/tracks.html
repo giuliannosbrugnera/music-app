@@ -1,27 +1,27 @@
 <!-- This template displays all the tracks returned from the REST API. -->
 <table class="table table-striped table-hover">
-  <thead>
-    <tr>
-      <th class="text-center">#</th>
-      <th>Name</th>
-      <th>Album</th>
-      <th>Band</th>
-      <th>Length</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr ng-repeat="track in tracks">
-      <td ng-bind="track.Number" class="text-center"></td>
-      <td ng-bind="track.Name"></td>
-      <td ng-bind="track.Album.Name"></td>
-      <td ng-bind="track.Album.Band.Name"></td>
-      <td ng-bind="track.Length"></td>
-      <td>
-        <button class="btn btn-info" ng-click="setDataForTrack(track.TrackId)">
-          <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Info
-        </button>
-      </td>
-    </tr>
-  </tbody>
+    <thead>
+        <tr>
+            <th class="text-center">#</th>
+            <th>Name</th>
+            <th>Album</th>
+            <th>Band</th>
+            <th>Length</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="track in tracks">
+            <td ng-bind="track.Number" class="text-center"></td>
+            <td ng-bind="track.Name"></td>
+            <td ng-bind="track.Album.Name"></td>
+            <td ng-bind="track.Album.Band.Name"></td>
+            <td ng-bind="track.Length"></td>
+            <td>
+                <button class="btn btn-info" ng-click="setDataForTrack(track.TrackId)">
+                    <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Info
+                </button>
+            </td>
+        </tr>
+    </tbody>
 </table>
