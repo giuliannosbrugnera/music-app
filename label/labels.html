@@ -4,6 +4,16 @@
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Create
     </a>
 </p>
+<form class="form-inline">
+    <div class="form-group">
+        <label for="labelName"></label>
+        <input ng-model="labelName" type="text" class="form-control" id="labelName" placeholder="Filter by name...">
+    </div>
+    <div class="form-group">
+        <label for="founderName"></label>
+        <input ng-model="founderName" type="text" class="form-control" id="founderName" placeholder="Filter by founder name...">
+    </div>
+</form>
 <table class="table table-striped table-hover">
     <thead>
         <tr>
@@ -16,7 +26,7 @@
     </thead>
     <tbody>
         <!-- It loops through all the label objects obtained from the API and displays the details. -->
-        <tr ng-repeat="label in labels">
+        <tr ng-repeat="label in labels | filter : labelName | filter : founderName">
             <td ng-bind="label.Name"></td>
             <td ng-bind="label.FounderName"></td>
             <td ng-bind="label.FoundationYear"></td>
