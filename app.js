@@ -17,27 +17,27 @@ angular
         $stateProvider
             .state('home', {
                 url: '/home',
-                templateUrl: 'views/home.html',
+                templateUrl: 'home/home.html',
                 controller: 'MainCtrl'
             })
             .state('tracks', {
                 url: '/tracks',
-                templateUrl: 'views/tracks.html',
+                templateUrl: 'track/tracks.html',
                 controller: 'TrackCtrl'
             })
             .state('albums', {
                 url: '/albums',
-                templateUrl: 'views/albums.html',
+                templateUrl: 'album/albums.html',
                 controller: 'AlbumCtrl'
             })
             .state('bands', {
                 url: '/bands',
-                templateUrl: 'views/bands.html',
+                templateUrl: 'band/bands.html',
                 controller: 'BandCtrl'
             })
             .state('labels', {
                 url: '/labels',
-                templateUrl: 'views/labels.html',
+                templateUrl: 'label/labels.html',
                 controller: 'LabelCtrl'
             });
     }])
