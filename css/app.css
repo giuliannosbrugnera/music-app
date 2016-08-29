@@ -1,36 +1,70 @@
 /* Sticky footer styles
 -------------------------------------------------- */
+
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
+
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
 }
+
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  background-color: #f5f5f5;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: #f5f5f5;
 }
 
 
 /* Custom page CSS
 -------------------------------------------------- */
+
+
 /* Not required for template or sticky footer method. */
 
 .container-footer {
-  width: auto;
-  max-width: 680px;
-  padding: 0 15px;
-}
-.container-footer .text-muted {
-  margin: 20px 0;
+    width: auto;
+    max-width: 680px;
+    padding: 0 15px;
 }
 
-th, td {
-  vertical-align: middle !important;
+.container-footer .text-muted {
+    margin: 20px 0;
+}
+
+th,
+td {
+    vertical-align: middle !important;
+}
+
+
+/* Navbar style */
+
+@media (min-width: 768px) {
+    .navbar-default .navbar-brand,
+    .navbar-default .navbar-nav li a {
+        background-color: #FFFFFF;
+    }
+    .navbar-default .navbar-nav > li > a:hover,
+    .navbar-default .navbar-nav > li > a:focus {
+        border-bottom: 5px solid #9e1e22;
+    }
+    .navbar.navbar-default {
+        height: 66px;
+        /*padding-top: 5px;*/
+    }
+}
+
+.navbar.navbar-default {
+    background-color: #FFFFFF;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    border-bottom: 5px solid #9e1e22;
 }
