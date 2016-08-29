@@ -15,6 +15,10 @@ angular
     ])
     .config(['$stateProvider', function($stateProvider) {
         $stateProvider
+            .state('home', {
+                url: '/home',
+                templateUrl: 'views/home.html'
+            })
             .state('tracks', {
                 url: '/tracks',
                 templateUrl: 'views/tracks.html',
@@ -37,5 +41,5 @@ angular
             });
     }])
     .run(['$state', function($state) {
-        $state.go('tracks');
+        $state.go('home');
     }]);
