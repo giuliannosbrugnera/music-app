@@ -48,7 +48,7 @@ td {
 @media (min-width: 768px) {
     .navbar-default .navbar-brand,
     .navbar-default .navbar-nav li a {
-        background-color: #FFFFFF;
+        background-color: #ffffff;
     }
     .navbar-default .navbar-nav > li > a:hover,
     .navbar-default .navbar-nav > li > a:focus {
@@ -56,16 +56,22 @@ td {
     }
     .navbar.navbar-default {
         height: 66px;
-        /*padding-top: 5px;*/
     }
 }
 
 .navbar.navbar-default {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
 }
 
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus,
-.navbar-default .navbar-nav > li.active > a {
+.navbar-default .navbar-nav > .active > a {
     border-bottom: 5px solid #9e1e22;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+    font-weight: bold;
+    background-color: #ffffff;
 }
