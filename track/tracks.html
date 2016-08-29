@@ -1,4 +1,9 @@
 <!-- This template displays all the tracks returned from the REST API. -->
+<p class="lead">Tracks
+    <a ui-sref="newTrack" class="btn btn-success btn-sm">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Create
+    </a>
+</p>
 <table class="table table-striped table-hover">
     <thead>
         <tr>
@@ -7,6 +12,7 @@
             <th>Album</th>
             <th>Band</th>
             <th>Length</th>
+            <th></th>
             <th></th>
         </tr>
     </thead>
@@ -18,9 +24,16 @@
             <td ng-bind="track.Album.Band.Name"></td>
             <td ng-bind="track.Length"></td>
             <td>
-                <button class="btn btn-info" ng-click="setDataForTrack(track.TrackId)">
+                <!-- View triggers a state transition so that the details for the track are displayed. -->
+                <a class="btn btn-info" ui-sref="viewTrack({id:track.TrackId})">
                     <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Info
-                </button>
+                </a>
+            </td>
+            <td>
+                <!-- Delete button deletes the track permanently. -->
+                <a class="btn btn-danger" ng-click="deleteTrack(track)">
+                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
+                </a>
             </td>
         </tr>
     </tbody>

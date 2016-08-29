@@ -16,7 +16,7 @@ angular
     .config(['$stateProvider', function($stateProvider) {
         $stateProvider
             .state('home', {
-                url: '/home',
+                url: '/',
                 templateUrl: 'home/home.html',
                 controller: 'MainCtrl'
             })
@@ -38,6 +38,30 @@ angular
             .state('labels', {
                 url: '/labels',
                 templateUrl: 'label/labels.html',
+                controller: 'LabelCtrl'
+            })
+            .state('viewTrack', { //state for showing single Track
+                url: '/tracks/:id',
+                params: { action: "view" },
+                templateUrl: 'track/track-view.html',
+                controller: 'TrackCtrl'
+            })
+            .state('viewAlbum', { //state for showing single Album
+                url: '/albums/:id',
+                params: { action: "view" },
+                templateUrl: 'album/album-view.html',
+                controller: 'AlbumCtrl'
+            })
+            .state('viewBand', { //state for showing single Band
+                url: '/bands/:id',
+                params: { action: "view" },
+                templateUrl: 'band/band-view.html',
+                controller: 'BandCtrl'
+            })
+            .state('viewLabel', { //state for showing single Record Label
+                url: '/labels/:id',
+                params: { action: "view" },
+                templateUrl: 'label/label-view.html',
                 controller: 'LabelCtrl'
             });
     }])

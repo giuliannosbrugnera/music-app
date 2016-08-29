@@ -1,0 +1,22 @@
+<!-- This template displays a specific track returned from the REST API. -->
+<p class="lead">Information about the track record <strong>{{track.Name}}</strong></p>
+<div class="well well-lg">
+    <dl class="dl-horizontal">
+        <dt>#</dt>
+        <dd ng-bind="track.Number"></dd>
+        <dt>Length</dt>
+        <dd ng-bind="track.Length"></dd>
+        <dt>Name</dt>
+        <dd ng-bind="track.Name"></dd>
+        <dt>Album</dt>
+        <dd ng-bind="track.Album.Name"></dd>
+        <dt>Band</dt>
+        <dd ng-bind="track.Album.Band.Name"></dd>
+        <dt>Record Label</dt>
+        <dd ng-bind="track.Album.Band.Label.Name"></dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-primary"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit</a>
+    <a class="btn btn-primary" ui-sref="tracks"><span class="glyphicon glyphicon-circle-arrow-left" aria-hidden="true"></span> Back to List</a>
+</div>
