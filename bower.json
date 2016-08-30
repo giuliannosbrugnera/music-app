@@ -1,0 +1,25 @@
+{
+  "name": "music-app",
+  "homepage": "https://github.com/giuliannosbrugnera/music-app",
+  "authors": [
+    "Giulianno Sbrugnera <giulianno.sbrugnera@gmail.com>"
+  ],
+  "description": "Music app to consume the Music Service REST API",
+  "main": "index.html",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "angular": "^1.5.8",
+    "angular-ui-router": "^0.3.1",
+    "angular-resource": "^1.5.8",
+    "angularUtils-pagination": "angular-utils-pagination#^0.11.1"
+  }
+}
