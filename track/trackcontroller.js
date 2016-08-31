@@ -11,8 +11,8 @@
 function TrackCtrl($scope, $stateParams, TrackService) {
     $scope.getOneTrack = function(id) {
         $scope.track = TrackService.get({ id: id });
-        $scope.track.$promise.then(function(data) {
-            $scope.track = data;
+        $scope.track.$promise.then(function(result) {
+            $scope.track = result;
         });
     }
 

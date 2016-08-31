@@ -8,40 +8,33 @@
  *
  * Controller for the Record Label of the musicApp.
  */
-angular.module('musicApp')
-    .controller('LabelCtrl', ['$scope', '$stateParams', 'LabelService', function($scope, $stateParams, LabelService) {
-        if ($stateParams.action === "view") {
-            // Should get a specific label.
-            $scope.label = getOneLabel($stateParams.id);
-        } else {
-            // Should get all the labels.
-            $scope.labels = getAllLabels();
-        }
+function LabelCtrl($scope, $stateParams, LabelService) {
+    $scope.getOneLabel = function(id) {
+        $scope.label = LabelService.get({ id: id });
+        $scope.label.$promise.then(function(result) {
+            $scope.label = result;
+        });
+    }
 
-        function getOneLabel(id) {
-            var result = LabelService.get({ id: id });
-            result.$promise.then(function(data) {
-                console.log(JSON.stringify(data));
-            });
+    $scope.getAllLabels = function() {
+        // Does not return the actual data immediately.
+        // It returns something will hold the data when the ajax returns.
+        $scope.labels = LabelService.query(); // Fetch all labels. Issues a GET to /api/labels
+        $scope.labels.$promise.then(function(result) {
+            $scope.labels = result;
+        });
+    }
 
-            return result;
-        }
+    $scope.label = {};
+    $scope.labels = [];
 
-        function getAllLabels() {
-            // Does not return the actual data immediately.
-            // It returns something will hold the data when the ajax returns.
-            var result = LabelService.query(); // Fetch all labels. Issues a GET to /api/labels
-            result.$promise.then(function(data) {
-                console.log(JSON.stringify(data));
-            });
+    if ($stateParams.action === "view") {
+        // Should get a specific label.
+        $scope.getOneLabel($stateParams.id);
+    } else {
+        // Should get all the labels.
+        $scope.getAllLabels();
+    }
+}
 
-            return result;
-        }
-
-        $scope.setDataForLabel = function(labelId) {
-            $scope.oneLabel = LabelService.get({ id: labelId });
-            $scope.oneLabel.$promise.then(function(data) {
-                console.log(JSON.stringify(data));
-            });
-        }
-    }]);
+angular.module('musicApp').controller('LabelCtrl', ['$scope', '$stateParams', 'LabelService', LabelCtrl]);
