@@ -45,8 +45,9 @@ function LabelCtrl($scope, $state, $stateParams, LabelService) {
 
     // Update the edited label. Issues a PUT to /api/labels/:id
     $scope.updateLabel = function() {
-        $scope.label.$update(function() {
+        $scope.label.$update({ id: $scope.label.LabelId }, function() {
             // On success go back to home.
+            swal("Confirmed!", "The Record Label was updated successfully!", "success");
             $state.go('home');
         });
     }
