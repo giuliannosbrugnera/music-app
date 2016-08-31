@@ -59,10 +59,22 @@ angular
                 templateUrl: 'band/band-view.html',
                 controller: 'BandCtrl'
             })
-            .state('viewLabel', { //state for showing single Record Label
+            .state('viewLabel', { //state for showing single label
                 url: '/labels/:id',
                 params: { action: "view" },
                 templateUrl: 'label/label-view.html',
+                controller: 'LabelCtrl'
+            })
+            .state('newLabel', { //state for adding a new label
+                url: '/labels',
+                params: { action: "add" },
+                templateUrl: 'label/label-add.html',
+                controller: 'LabelCtrl'
+            })
+            .state('editLabel', { //state for updating a label
+                url: '/labels/:id',
+                params: { action: "edit" },
+                templateUrl: 'label/label-edit.html',
                 controller: 'LabelCtrl'
             });
     }])

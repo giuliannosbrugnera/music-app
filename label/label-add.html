@@ -1,0 +1,7 @@
+<!-- This template is used to accept user inputs and add a new label to our system. -->
+<!-- When the form is submitted the function addLabel() of the scope is called which in turn -->
+<!-- sends a POST request to server to create a new label. -->
+<p class="lead">Create a new Record Label</p>
+<form class="form-horizontal" role="form" ng-submit="addLabel()">
+    <div ng-include="'label/_form.html'"></div>
+</form>

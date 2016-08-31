@@ -1,0 +1,6 @@
+<!-- This template is used to accept user inputs and update an existing label in our system. -->
+<!-- Once the form is submitted the scope function updateLabel() is called which issues a PUT request to server to update a label. -->
+<p class="lead">Update a Record Label</p>
+<form class="form-horizontal" role="form" ng-submit="updateLabel()">
+    <div ng-include="'label/_form.html'"></div>
+</form>
