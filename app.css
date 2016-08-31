@@ -8,6 +8,7 @@ html {
 
 body {
     /* Margin bottom by footer height */
+    padding-top: 100px;
     margin-bottom: 60px;
 }
 
@@ -165,4 +166,8 @@ td {
 
 .dl-horizontal dt {
     text-align: inherit;
+}
+
+.navbar-fixed-top > .container {
+    padding-top: 8px;
 }

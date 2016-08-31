@@ -12,18 +12,17 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-default" role="navigation">
-        <div class="container-fluid">
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand" ui-sref="home" ui-sref-active="active">Music App</a>
-                <!-- data-target attribute must specify the navbar element below. -->
-                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
             </div>
-            <div class="collapse navbar-collapse">
+            <div class="navbar-collapse collapse" id="navbar-main">
                 <ul class="nav navbar-nav">
                     <li ui-sref-active="active"><a ui-sref="tracks({ pageSize: 10, pageNumber: 1 })">Tracks</a></li>
                     <li ui-sref-active="active"><a ui-sref="albums">Albums</a></li>
@@ -32,7 +31,7 @@
                 </ul>
             </div>
         </div>
-    </nav>
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-lg-10 col-lg-offset-1">

@@ -25,42 +25,42 @@
         </form>
     </div>
 </div>
-<table class="table table-striped table-hover">
-    <thead>
-        <tr>
-            <th class="text-center">#</th>
-            <th>Name</th>
-            <th>Album</th>
-            <th>Band</th>
-            <th>Length</th>
-            <th></th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr ng-show="tracks.length <= 0">
-            <td class="text-center">Loading new data!!!</td>
-        </tr>
-        <tr dir-paginate="track in tracks | itemsPerPage: pageSize" total-items="totalCount" current-page="currentPage">
-            <!-- <tr ng-repeat="track in tracks | filter : {Name: trackName, Album: {Name: albumName, Band: {Name: bandName}}}"> -->
-            <td ng-bind="track.Number" class="text-center"></td>
-            <td ng-bind="track.Name"></td>
-            <td ng-bind="track.Album.Name"></td>
-            <td ng-bind="track.Album.Band.Name"></td>
-            <td ng-bind="track.Length"></td>
-            <td>
-                <!-- View triggers a state transition so that the details for the track are displayed. -->
-                <a class="btn btn-info" ui-sref="viewTrack({id: track.TrackId})">
-                    <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Info
-                </a>
-            </td>
-            <td>
-                <!-- Delete button deletes the track permanently. -->
-                <a class="btn btn-danger" ng-click="deleteTrack(track)">
-                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
-                </a>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<dir-pagination-controls max-size="10" direction-links="true" on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>
+<div ng-if="tracks.length <= 0" class="alert alert-info text-center" role="alert">Loading new data...</div>
+<div ng-if="tracks.length > 0">
+    <table ng-if="tracks.length > 0" class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th class="text-center">#</th>
+                <th>Name</th>
+                <th>Album</th>
+                <th>Band</th>
+                <th>Length</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr dir-paginate="track in tracks | itemsPerPage: pageSize" total-items="totalCount" current-page="currentPage">
+                <!-- <tr ng-repeat="track in tracks | filter : {Name: trackName, Album: {Name: albumName, Band: {Name: bandName}}}"> -->
+                <td ng-bind="track.Number" class="text-center"></td>
+                <td ng-bind="track.Name"></td>
+                <td ng-bind="track.Album.Name"></td>
+                <td ng-bind="track.Album.Band.Name"></td>
+                <td ng-bind="track.Length"></td>
+                <td>
+                    <!-- View triggers a state transition so that the details for the track are displayed. -->
+                    <a class="btn btn-info" ui-sref="viewTrack({id: track.TrackId})">
+                        <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Info
+                    </a>
+                </td>
+                <td>
+                    <!-- Delete button deletes the track permanently. -->
+                    <a class="btn btn-danger" ng-click="deleteTrack(track)">
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <dir-pagination-controls max-size="10" direction-links="true" on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>
+</div>
