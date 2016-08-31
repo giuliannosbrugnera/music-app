@@ -38,7 +38,11 @@
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="track in tracks | filter : {Name: trackName, Album: {Name: albumName, Band: {Name: bandName}}}">
+        <tr ng-show="tracks.length <= 0">
+            <td class="text-center">Loading new data!!!</td>
+        </tr>
+        <tr dir-paginate="track in tracks | itemsPerPage: pageSize" total-items="totalCount" current-page="currentPage">
+            <!-- <tr ng-repeat="track in tracks | filter : {Name: trackName, Album: {Name: albumName, Band: {Name: bandName}}}"> -->
             <td ng-bind="track.Number" class="text-center"></td>
             <td ng-bind="track.Name"></td>
             <td ng-bind="track.Album.Name"></td>
@@ -46,7 +50,7 @@
             <td ng-bind="track.Length"></td>
             <td>
                 <!-- View triggers a state transition so that the details for the track are displayed. -->
-                <a class="btn btn-info" ui-sref="viewTrack({id:track.TrackId})">
+                <a class="btn btn-info" ui-sref="viewTrack({id: track.TrackId})">
                     <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Info
                 </a>
             </td>
@@ -59,3 +63,4 @@
         </tr>
     </tbody>
 </table>
+<dir-pagination-controls max-size="10" direction-links="true" on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>

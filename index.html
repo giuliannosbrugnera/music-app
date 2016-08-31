@@ -25,7 +25,7 @@
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li ui-sref-active="active"><a ui-sref="tracks">Tracks</a></li>
+                    <li ui-sref-active="active"><a ui-sref="tracks({ pageSize: 10, pageNumber: 1 })">Tracks</a></li>
                     <li ui-sref-active="active"><a ui-sref="albums">Albums</a></li>
                     <li ui-sref-active="active"><a ui-sref="bands">Bands</a></li>
                     <li ui-sref-active="active"><a ui-sref="labels">Record Labels</a></li>
@@ -35,7 +35,7 @@
     </nav>
     <div class="container">
         <div class="row">
-            <div class="col-md-10 col-md-offset-1">
+            <div class="col-lg-10 col-lg-offset-1">
                 <!-- This is where our views will load -->
                 <!-- The ui-view directive comes from UI Router module and acts as a container for our views. -->
                 <div ui-view></div>

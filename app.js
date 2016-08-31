@@ -11,7 +11,8 @@
 angular
     .module('musicApp', [
         'ui.router',
-        'ngResource'
+        'ngResource',
+        'angularUtils.directives.dirPagination'
     ])
     .config(['$stateProvider', function($stateProvider) {
         $stateProvider
@@ -21,7 +22,7 @@ angular
                 controller: 'MainCtrl'
             })
             .state('tracks', {
-                url: '/tracks',
+                url: '/tracks/:pageSize/:pageNumber/:orderBy',
                 templateUrl: 'track/tracks.html',
                 controller: 'TrackCtrl'
             })
