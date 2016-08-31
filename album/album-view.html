@@ -1,9 +1,8 @@
 <!-- This template displays a specific album returned from the REST API. -->
-<p class="lead">Information about the album <strong>{{album.Name}}</strong></p>
-<div class="well well-lg">
+<p class="lead">Album information</p>
+<div class="bs-callout bs-callout-primary">
+    <h4 ng-bind="album.Name"></h4>
     <dl class="dl-horizontal">
-        <dt>Name</dt>
-        <dd ng-bind="album.Name"></dd>
         <dt>Release year</dt>
         <dd ng-bind="album.ReleaseYear"></dd>
         <dt>Band</dt>

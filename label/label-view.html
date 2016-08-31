@@ -1,13 +1,12 @@
 <!-- This template displays a specific label returned from the REST API. -->
-<p class="lead">Information about the record label <strong>{{label.Name}}</strong></p>
-<div class="well well-lg">
+<p class="lead">Label information</p>
+<div class="bs-callout bs-callout-primary">
+    <h4 ng-bind="label.Name"></h4>
     <dl class="dl-horizontal">
-        <dt>Foundation year</dt>
-        <dd ng-bind="label.FoundationYear"></dd>
         <dt>Founder name</dt>
         <dd ng-bind="label.FounderName"></dd>
-        <dt>Name</dt>
-        <dd ng-bind="label.Name"></dd>
+        <dt>Foundation year</dt>
+        <dd ng-bind="label.FoundationYear"></dd>
     </dl>
 </div>
 <div>

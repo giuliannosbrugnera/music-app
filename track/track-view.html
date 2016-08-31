@@ -1,13 +1,12 @@
 <!-- This template displays a specific track returned from the REST API. -->
-<p class="lead">Information about the track record <strong>{{track.Name}}</strong></p>
-<div class="well well-lg">
+<p class="lead">Track record information</p>
+<div class="bs-callout bs-callout-primary">
+    <h4 ng-bind="track.Name"></h4>
     <dl class="dl-horizontal">
         <dt>#</dt>
         <dd ng-bind="track.Number"></dd>
         <dt>Length</dt>
         <dd ng-bind="track.Length"></dd>
-        <dt>Name</dt>
-        <dd ng-bind="track.Name"></dd>
         <dt>Album</dt>
         <dd ng-bind="track.Album.Name"></dd>
         <dt>Band</dt>
