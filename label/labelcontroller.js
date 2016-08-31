@@ -28,10 +28,19 @@ function LabelCtrl($scope, $state, $stateParams, LabelService) {
 
     // Create a new label. Issues a POST to /api/labels
     $scope.addLabel = function() {
-        $scope.label.$save(function() {
-            // On success go back to home.
-            $state.go('home');
-        });
+        console.log(JSON.stringify($scope.label));
+        $scope.label.$save(
+            function(resp, headers) {
+                // On success go back to home.
+                //success callback
+                console.log("success: " + JSON.stringify(resp));
+                swal("Confirmed!", "The Record Label was created successfully!", "success");
+                $state.go('home');
+            },
+            function(err) {
+                // error callback
+                console.log("error: " + JSON.stringify(err));
+            });
     }
 
     // Update the edited label. Issues a PUT to /api/labels/:id

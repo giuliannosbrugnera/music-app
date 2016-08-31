@@ -12,7 +12,8 @@ angular
     .module('musicApp', [
         'ui.router',
         'ngResource',
-        'angularUtils.directives.dirPagination'
+        'angularUtils.directives.dirPagination',
+        'oitozero.ngSweetAlert'
     ])
     .config(['$stateProvider', function($stateProvider) {
         $stateProvider
