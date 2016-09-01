@@ -20,6 +20,7 @@ angular.module('musicApp')
                 isArray: false
             },
             'remove': { method: 'DELETE' },
-            'delete': { method: 'DELETE' }
+            'delete': { method: 'DELETE' },
+            'update': { method: 'PUT' }
         });
     }]);

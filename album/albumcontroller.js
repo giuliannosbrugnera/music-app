@@ -66,6 +66,8 @@ function AlbumCtrl($scope, $state, $stateParams, $timeout, AlbumService, BandSer
 
     // Delete the specified album. Issues a DELETE to /api/albums/:id
     $scope.deleteAlbum = function(album) {
+        console.log("@deleteAlbum");
+        console.log(JSON.stringify(album));
         swal({
                 title: "Are you sure?",
                 text: "You will not be able to recover this album!",
