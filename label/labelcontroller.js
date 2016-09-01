@@ -52,6 +52,7 @@ function LabelCtrl($scope, $state, $stateParams, $timeout, LabelService) {
         });
     }
 
+    // Delete the specified label. Issues a DELETE to /api/labels/:id
     $scope.deleteLabel = function(label) {
         swal({
                 title: "Are you sure?",

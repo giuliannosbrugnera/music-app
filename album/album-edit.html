@@ -1,0 +1,6 @@
+<!-- This template is used to accept user inputs and update an existing album in our system. -->
+<!-- Once the form is submitted the scope function updateBand() is called which issues a PUT request to server to update a album. -->
+<p class="lead">Update a Album</p>
+<form class="form-horizontal" role="form" ng-submit="updateAlbum()">
+    <div ng-include="'album/_form.html'"></div>
+</form>

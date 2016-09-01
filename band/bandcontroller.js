@@ -64,6 +64,7 @@ function BandCtrl($scope, $state, $stateParams, $timeout, BandService, LabelServ
         });
     }
 
+    // Delete the specified band. Issues a DELETE to /api/bands/:id
     $scope.deleteBand = function(band) {
         swal({
                 title: "Are you sure?",

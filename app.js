@@ -72,11 +72,23 @@ angular
                 templateUrl: 'band/band-add.html',
                 controller: 'BandCtrl'
             })
+            .state('newAlbum', { //state for adding a new album
+                url: '/albums',
+                params: { action: "add" },
+                templateUrl: 'album/album-add.html',
+                controller: 'AlbumCtrl'
+            })
             .state('newLabel', { //state for adding a new label
                 url: '/labels',
                 params: { action: "add" },
                 templateUrl: 'label/label-add.html',
                 controller: 'LabelCtrl'
+            })
+            .state('editAlbum', { //state for updating an album
+                url: '/albums/:id',
+                params: { action: "edit" },
+                templateUrl: 'album/album-edit.html',
+                controller: 'AlbumCtrl'
             })
             .state('editBand', { //state for updating a band
                 url: '/bands/:id',
