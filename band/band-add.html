@@ -1,0 +1,7 @@
+<!-- This template is used to accept user inputs and add a new band to our system. -->
+<!-- When the form is submitted the function addBand() of the scope is called which in turn -->
+<!-- sends a POST request to server to create a new band. -->
+<p class="lead">Create a new Band</p>
+<form class="form-horizontal" role="form" ng-submit="addBand()">
+    <div ng-include="'band/_form.html'"></div>
+</form>

@@ -1,0 +1,6 @@
+<!-- This template is used to accept user inputs and update an existing band in our system. -->
+<!-- Once the form is submitted the scope function updateBand() is called which issues a PUT request to server to update a band. -->
+<p class="lead">Update a Band</p>
+<form class="form-horizontal" role="form" ng-submit="updateBand()">
+    <div ng-include="'band/_form.html'"></div>
+</form>

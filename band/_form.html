@@ -1,0 +1,36 @@
+<!-- _form.html contains a simple form which allows users to enter data.  -->
+<!-- Note that this form will be included by band-add.html and band-edit.html because both of them accept inputs from users. -->
+<!-- The template uses ng-model to bind various band details to different properties of scope model band. -->
+<div class="form-group">
+    <label for="name" class="col-sm-2 control-label">Name</label>
+    <div class="col-sm-10">
+        <input type="text" ng-model="band.Name" class="form-control" id="name" placeholder="Band name here..." />
+    </div>
+</div>
+<div class="form-group">
+    <label for="genre" class="col-sm-2 control-label">Genre</label>
+    <div class="col-sm-10">
+        <input type="text" ng-model="band.Genre" class="form-control" id="genre" placeholder="Music genre?" />
+    </div>
+</div>
+<div class="form-group">
+    <label for="country" class="col-sm-2 control-label">Country</label>
+    <div class="col-sm-10">
+        <input type="text" ng-model="band.Country" class="form-control" id="country" placeholder="Where was it formed?" />
+    </div>
+</div>
+<div class="form-group">
+    <label for="recordLabel" class="col-sm-2 control-label">Record Label</label>
+    <div class="col-sm-10">
+        <!-- band.LabelRefId holds the Id of the selected Record Label -->
+        <select ng-model="band.Label" ng-options="label.Name for label in labels" class="form-control" id="recordLabel"></select>
+    </div>
+</div>
+<div class="pane panel-default">
+    <p>Selected label: {{band.Label | json: spacing}}</p>
+</div>
+<div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-success" value="Save"><span class="glyphicon glyphicon-floppy-save"></span> Save</button>
+    </div>
+</div>

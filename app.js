@@ -66,11 +66,23 @@ angular
                 templateUrl: 'label/label-view.html',
                 controller: 'LabelCtrl'
             })
+            .state('newBand', { //state for adding a new band
+                url: '/bands',
+                params: { action: "add" },
+                templateUrl: 'band/band-add.html',
+                controller: 'BandCtrl'
+            })
             .state('newLabel', { //state for adding a new label
                 url: '/labels',
                 params: { action: "add" },
                 templateUrl: 'label/label-add.html',
                 controller: 'LabelCtrl'
+            })
+            .state('editBand', { //state for updating a band
+                url: '/bands/:id',
+                params: { action: "edit" },
+                templateUrl: 'band/band-edit.html',
+                controller: 'BandCtrl'
             })
             .state('editLabel', { //state for updating a label
                 url: '/labels/:id',
