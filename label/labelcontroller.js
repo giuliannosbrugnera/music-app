@@ -8,7 +8,7 @@
  *
  * Controller for the Record Label of the musicApp.
  */
-function LabelCtrl($scope, $state, $stateParams, LabelService) {
+function LabelCtrl($scope, $state, $stateParams, $timeout, LabelService) {
     $scope.getOneLabel = function(id) {
         $scope.label = LabelService.get({ id: id });
         $scope.label.$promise.then(function(result) {
@@ -67,22 +67,20 @@ function LabelCtrl($scope, $state, $stateParams, LabelService) {
             },
             function(isConfirm) {
                 if (isConfirm) {
-                    setTimeout(function() {
-                        $scope.$apply(function() {
-                            label.$delete({ id: label.LabelId },
-                                function(resp, headers) {
-                                    swal("Deleted!", "The record label has been deleted.", "success");
-                                    console.log("success: " + JSON.stringify(resp));
-                                },
-                                function(err) {
-                                    // error callback
-                                    swal("Error", "There was an error while tying to delete your record label.", "error");
-                                    console.log("error: " + JSON.stringify(err));
-                                });
-                        });
+                    $timeout(function() {
+                        label.$delete({ id: label.LabelId },
+                            function(resp, headers) {
+                                swal("Deleted!", "The record label has been deleted.", "success");
+                                console.log("success: " + JSON.stringify(resp));
+                                // Update the labels that are being shown by ng-repeat.
+                                $scope.getAllLabels();
+                            },
+                            function(err) {
+                                // error callback
+                                swal("Error", "There was an error while tying to delete your record label.", "error");
+                                console.log("error: " + JSON.stringify(err));
+                            });
                     }, 1500);
-
-                    $scope.$apply();
                 } else {
                     swal("Cancelled", "The record label is safe :)", "error");
                 }
@@ -110,4 +108,4 @@ function LabelCtrl($scope, $state, $stateParams, LabelService) {
     }
 }
 
-angular.module('musicApp').controller('LabelCtrl', ['$scope', '$state', '$stateParams', 'LabelService', LabelCtrl]);
+angular.module('musicApp').controller('LabelCtrl', ['$scope', '$state', '$stateParams', '$timeout', 'LabelService', LabelCtrl]);
