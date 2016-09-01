@@ -27,8 +27,7 @@
             <th>Name</th>
             <th>Founder Name</th>
             <th>Foundation Year</th>
-            <th></th>
-            <th></th>
+            <th class="text-center">Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -37,13 +36,11 @@
             <td ng-bind="label.Name"></td>
             <td ng-bind="label.FounderName"></td>
             <td ng-bind="label.FoundationYear"></td>
-            <td>
+            <td class="text-center">
                 <!-- View triggers a state transition so that the details for the label are displayed. -->
                 <a class="btn btn-info" ui-sref="viewLabel({id:label.LabelId})">
                     <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Info
                 </a>
-            </td>
-            <td>
                 <!-- Delete button deletes the label permanently. -->
                 <a class="btn btn-danger" ng-click="deleteLabel(label)">
                     <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
