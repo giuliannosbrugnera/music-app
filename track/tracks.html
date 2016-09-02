@@ -4,27 +4,6 @@
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Create
     </a>
 </p>
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h3 class="panel-title">Filters</h3>
-    </div>
-    <div class="panel-body">
-        <form class="form-inline">
-            <div class="form-group">
-                <label for="trackName"></label>
-                <input ng-model="trackName" type="text" class="form-control" id="trackName" placeholder="By name...">
-            </div>
-            <div class="form-group">
-                <label for="albumName"></label>
-                <input ng-model="albumName" type="text" class="form-control" id="albumName" placeholder="By album...">
-            </div>
-            <div class="form-group">
-                <label for="bandName"></label>
-                <input ng-model="bandName" type="text" class="form-control" id="bandName" placeholder="By band...">
-            </div>
-        </form>
-    </div>
-</div>
 <div ng-if="tracks.length <= 0" class="alert alert-info text-center" role="alert">Loading new data...</div>
 <div ng-if="tracks.length > 0">
     <table class="table table-bordered table-hover">

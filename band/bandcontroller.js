@@ -38,6 +38,9 @@ function BandCtrl($scope, $state, $stateParams, $timeout, BandService, LabelServ
 
     // Create a new band. Issues a POST to /api/bands
     $scope.addBand = function() {
+        $scope.band.LabelRefId = $scope.band.Label.LabelId;
+        console.log(JSON.stringify($scope.band.BandId));
+        console.log(JSON.stringify($scope.band));
         console.log(JSON.stringify($scope.band));
         console.log("selectedLabelId: " + $scope.band.Label);
         $scope.band.$save(
@@ -57,6 +60,9 @@ function BandCtrl($scope, $state, $stateParams, $timeout, BandService, LabelServ
 
     // Update the edited band. Issues a PUT to /api/bands/:id
     $scope.updateBand = function() {
+        $scope.band.LabelRefId = $scope.band.Label.LabelId;
+        console.log(JSON.stringify($scope.band.BandId));
+        console.log(JSON.stringify($scope.band));
         $scope.band.$update({ id: $scope.band.BandId },
             function(resp, headers) {
                 // On success go back to bands.

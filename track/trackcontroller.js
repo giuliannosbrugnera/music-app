@@ -40,6 +40,7 @@ function TrackCtrl($scope, $state, $stateParams, $timeout, TrackService, AlbumSe
 
     // Create a new track. Issues a POST to /api/tracks
     $scope.addTrack = function() {
+        $scope.track.AlbumRefId = $scope.track.Album.AlbumId;
         console.log(JSON.stringify($scope.track));
         console.log("selectedTrack: " + JSON.stringify($scope.track.Album));
         $scope.track.$save(
@@ -59,6 +60,7 @@ function TrackCtrl($scope, $state, $stateParams, $timeout, TrackService, AlbumSe
 
     // Update the edited track. Issues a PUT to /api/tracks/:id
     $scope.updateTrack = function() {
+        $scope.track.AlbumRefId = $scope.track.Album.AlbumId;
         $scope.track.$update({ id: $scope.track.TrackId },
             function(resp, headers) {
                 // On success go back to tracks.

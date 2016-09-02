@@ -38,6 +38,7 @@ function AlbumCtrl($scope, $state, $stateParams, $timeout, AlbumService, BandSer
 
     // Create a new album. Issues a POST to /api/albums
     $scope.addAlbum = function() {
+        $scope.album.BandRefId = $scope.album.Band.BandId;
         console.log(JSON.stringify($scope.album));
         console.log("selectedBand: " + JSON.stringify($scope.album.Band));
         $scope.album.$save(
@@ -57,6 +58,7 @@ function AlbumCtrl($scope, $state, $stateParams, $timeout, AlbumService, BandSer
 
     // Update the edited album. Issues a PUT to /api/albums/:id
     $scope.updateAlbum = function() {
+        $scope.album.BandRefId = $scope.album.Band.BandId;
         $scope.album.$update({ id: $scope.album.AlbumId },
             function(resp, headers) {
                 // On success go back to albums.
