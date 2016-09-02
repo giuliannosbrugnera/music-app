@@ -59,11 +59,19 @@ function TrackCtrl($scope, $state, $stateParams, $timeout, TrackService, AlbumSe
 
     // Update the edited track. Issues a PUT to /api/tracks/:id
     $scope.updateTrack = function() {
-        $scope.track.$update({ id: $scope.track.TrackId }, function() {
-            // On success go back to tracks.
-            swal("Confirmed!", "The Track was updated successfully!", "success");
-            $state.go("home");
-        });
+        $scope.track.$update({ id: $scope.track.TrackId },
+            function(resp, headers) {
+                // On success go back to tracks.
+                console.log("success: " + JSON.stringify(resp));
+
+                swal("Confirmed!", "The Track was updated successfully!", "success");
+                $state.go("home");
+            },
+            function(err) {
+                // error callback
+                swal("Error", "There was an error while tying to update your track.", "error");
+                console.log("error: " + JSON.stringify(err));
+            });
     }
 
     // Delete the specified track. Issues a DELETE to /api/tracks/:id

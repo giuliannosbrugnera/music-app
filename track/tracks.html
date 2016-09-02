@@ -27,7 +27,7 @@
 </div>
 <div ng-if="tracks.length <= 0" class="alert alert-info text-center" role="alert">Loading new data...</div>
 <div ng-if="tracks.length > 0">
-    <table ng-if="tracks.length > 0" class="table table-bordered table-hover">
+    <table class="table table-bordered table-hover">
         <thead>
             <tr>
                 <th class="text-center">#</th>
@@ -40,7 +40,6 @@
         </thead>
         <tbody>
             <tr dir-paginate="track in tracks | itemsPerPage: pageSize" total-items="totalCount" current-page="currentPage">
-                <!-- <tr ng-repeat="track in tracks | filter : {Name: trackName, Album: {Name: albumName, Band: {Name: bandName}}}"> -->
                 <td ng-bind="track.Number" class="text-center"></td>
                 <td ng-bind="track.Name"></td>
                 <td ng-bind="track.Album.Name"></td>

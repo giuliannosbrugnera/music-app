@@ -25,30 +25,34 @@
         </form>
     </div>
 </div>
-<table class="table table-bordered table-hover">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Release Year</th>
-            <th>Band</th>
-            <th class="text-center">Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat="album in albums | filter : {Name: albumName, ReleaseYear: releaseYear, Band: {Name: bandName}}">
-            <td ng-bind="album.Name"></td>
-            <td ng-bind="album.ReleaseYear"></td>
-            <td ng-bind="album.Band.Name"></td>
-            <td class="text-center">
-                <!-- View triggers a state transition so that the details for the album are displayed. -->
-                <a class="btn btn-info" ui-sref="viewAlbum({id:album.AlbumId})">
-                    <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Info
-                </a>
-                <!-- Delete button deletes the album permanently. -->
-                <a class="btn btn-danger" ng-click="deleteAlbum(album)">
-                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
-                </a>
-            </td>
-        </tr>
-    </tbody>
-</table>
+<div ng-if="albums.length <= 0" class="alert alert-info text-center" role="alert">Loading new data...</div>
+<div ng-if="albums.length > 0">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Release Year</th>
+                <th>Band</th>
+                <th class="text-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- It loops through all the album objects obtained from the API and displays the details. -->
+            <tr ng-repeat="album in albums | filter : {Name: albumName, ReleaseYear: releaseYear, Band: {Name: bandName}}">
+                <td ng-bind="album.Name"></td>
+                <td ng-bind="album.ReleaseYear"></td>
+                <td ng-bind="album.Band.Name"></td>
+                <td class="text-center">
+                    <!-- View triggers a state transition so that the details for the album are displayed. -->
+                    <a class="btn btn-info" ui-sref="viewAlbum({id:album.AlbumId})">
+                        <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Info
+                    </a>
+                    <!-- Delete button deletes the album permanently. -->
+                    <a class="btn btn-danger" ng-click="deleteAlbum(album)">
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

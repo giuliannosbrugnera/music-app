@@ -39,17 +39,25 @@ function LabelCtrl($scope, $state, $stateParams, $timeout, LabelService) {
             },
             function(err) {
                 // error callback
+                swal("Error", "There was an error while tying to create your record label.", "error");
                 console.log("error: " + JSON.stringify(err));
             });
     }
 
     // Update the edited label. Issues a PUT to /api/labels/:id
     $scope.updateLabel = function() {
-        $scope.label.$update({ id: $scope.label.LabelId }, function() {
-            // On success go back to labels.
-            swal("Confirmed!", "The Record Label was updated successfully!", "success");
-            $state.go("labels");
-        });
+        $scope.label.$update({ id: $scope.label.LabelId },
+            function(resp, headers) {
+                // On success go back to labels.
+                console.log("success: " + JSON.stringify(resp));
+                swal("Confirmed!", "The Record Label was updated successfully!", "success");
+                $state.go("labels");
+            },
+            function(err) {
+                // error callback
+                swal("Error", "There was an error while tying to update your record label.", "error");
+                console.log("error: " + JSON.stringify(err));
+            });
     }
 
     // Delete the specified label. Issues a DELETE to /api/labels/:id

@@ -21,31 +21,34 @@
         </form>
     </div>
 </div>
-<table class="table table-bordered table-hover">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Founder Name</th>
-            <th>Foundation Year</th>
-            <th class="text-center">Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        <!-- It loops through all the label objects obtained from the API and displays the details. -->
-        <tr ng-repeat="label in labels | filter : {Name: labelName, FounderName: founderName}">
-            <td ng-bind="label.Name"></td>
-            <td ng-bind="label.FounderName"></td>
-            <td ng-bind="label.FoundationYear"></td>
-            <td class="text-center">
-                <!-- View triggers a state transition so that the details for the label are displayed. -->
-                <a class="btn btn-info" ui-sref="viewLabel({id:label.LabelId})">
-                    <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Info
-                </a>
-                <!-- Delete button deletes the label permanently. -->
-                <a class="btn btn-danger" ng-click="deleteLabel(label)">
-                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
-                </a>
-            </td>
-        </tr>
-    </tbody>
-</table>
+<div ng-if="labels.length <= 0" class="alert alert-info text-center" role="alert">Loading new data...</div>
+<div ng-if="labels.length > 0">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Founder Name</th>
+                <th>Foundation Year</th>
+                <th class="text-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- It loops through all the label objects obtained from the API and displays the details. -->
+            <tr ng-repeat="label in labels | filter : {Name: labelName, FounderName: founderName}">
+                <td ng-bind="label.Name"></td>
+                <td ng-bind="label.FounderName"></td>
+                <td ng-bind="label.FoundationYear"></td>
+                <td class="text-center">
+                    <!-- View triggers a state transition so that the details for the label are displayed. -->
+                    <a class="btn btn-info" ui-sref="viewLabel({id:label.LabelId})">
+                        <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Info
+                    </a>
+                    <!-- Delete button deletes the label permanently. -->
+                    <a class="btn btn-danger" ng-click="deleteLabel(label)">
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -25,30 +25,34 @@
         </form>
     </div>
 </div>
-<table class="table table-bordered table-hover">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Genre</th>
-            <th>Country</th>
-            <th class="text-center">Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat="band in bands | filter : {Name: bandName, Genre: bandGenre, Country: bandCountry}">
-            <td ng-bind="band.Name"></td>
-            <td ng-bind="band.Genre"></td>
-            <td ng-bind="band.Country"></td>
-            <td class="text-center">
-                <!-- View triggers a state transition so that the details for the band are displayed. -->
-                <a class="btn btn-info" ui-sref="viewBand({id:band.BandId})">
-                    <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Info
-                </a>
-                <!-- Delete button deletes the band permanently. -->
-                <a class="btn btn-danger" ng-click="deleteBand(band)">
-                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
-                </a>
-            </td>
-        </tr>
-    </tbody>
-</table>
+<div ng-if="bands.length <= 0" class="alert alert-info text-center" role="alert">Loading new data...</div>
+<div ng-if="bands.length > 0">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Genre</th>
+                <th>Country</th>
+                <th class="text-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- It loops through all the band objects obtained from the API and displays the details. -->
+            <tr ng-repeat="band in bands | filter : {Name: bandName, Genre: bandGenre, Country: bandCountry}">
+                <td ng-bind="band.Name"></td>
+                <td ng-bind="band.Genre"></td>
+                <td ng-bind="band.Country"></td>
+                <td class="text-center">
+                    <!-- View triggers a state transition so that the details for the band are displayed. -->
+                    <a class="btn btn-info" ui-sref="viewBand({id:band.BandId})">
+                        <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Info
+                    </a>
+                    <!-- Delete button deletes the band permanently. -->
+                    <a class="btn btn-danger" ng-click="deleteBand(band)">
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

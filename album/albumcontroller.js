@@ -57,11 +57,18 @@ function AlbumCtrl($scope, $state, $stateParams, $timeout, AlbumService, BandSer
 
     // Update the edited album. Issues a PUT to /api/albums/:id
     $scope.updateAlbum = function() {
-        $scope.album.$update({ id: $scope.album.AlbumId }, function() {
-            // On success go back to albums.
-            swal("Confirmed!", "The Album was updated successfully!", "success");
-            $state.go("albums");
-        });
+        $scope.album.$update({ id: $scope.album.AlbumId },
+            function(resp, headers) {
+                // On success go back to albums.
+                console.log("success: " + JSON.stringify(resp));
+                swal("Confirmed!", "The Album was updated successfully!", "success");
+                $state.go("albums");
+            },
+            function(err) {
+                // error callback
+                swal("Error", "There was an error while tying to update your album.", "error");
+                console.log("error: " + JSON.stringify(err));
+            });
     }
 
     // Delete the specified album. Issues a DELETE to /api/albums/:id

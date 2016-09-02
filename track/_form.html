@@ -25,9 +25,6 @@
         <select ng-model="track.Album" ng-options="album.Name for album in albums" class="form-control" id="album"></select>
     </div>
 </div>
-<div class="pane panel-default">
-    <p>Selected album: {{track.Album | json: spacing}}</p>
-</div>
 <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
         <button type="submit" class="btn btn-success" value="Save"><span class="glyphicon glyphicon-floppy-save"></span> Save</button>
