@@ -12,3 +12,5 @@
 - [Pagination Directive](https://github.com/michaelbromley/angularUtils/tree/master/src/directives/pagination)
 - [Bootswatch Paper Theme](https://bootswatch.com/paper/)
 - [SweetAlert](https://github.com/t4t5/sweetalert). More specifically, [AngularJS wrapper for SweetAlert](https://github.com/oitozero/ngSweetAlert)
+- [Angular Loading Bar](https://github.com/chieffancypants/angular-loading-bar)
+- [Angular Animate](https://github.com/angular/bower-angular-animate)

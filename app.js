@@ -13,7 +13,9 @@ angular
         'ui.router',
         'ngResource',
         'angularUtils.directives.dirPagination',
-        'oitozero.ngSweetAlert'
+        'oitozero.ngSweetAlert',
+        'angular-loading-bar',
+        'ngAnimate'
     ])
     .config(['$stateProvider', function($stateProvider) {
         $stateProvider
